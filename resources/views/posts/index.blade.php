@@ -28,18 +28,18 @@
                 <div class="col-sm">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <h5 class="card-title"><a href="{{route('posts.show',$post->id)}}">{{ $post->title }}</a></h5>
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $post->body }}</p>
                         </div>
                         <div class="card-footer">
                             <div class="row">
+                                
+                                <div class="col-9"><p class="card-text">user: <b>{{ $post->user->name}}</b></p></div>
+
                                 @Auth
                                 @if(Auth::user()->id===$post->user_id)
-                                <div class="col-9"><p class="card-text">user: <b>{{ $post->user_id}}</b></p></div>
-
-
                                 <div class="col-1">
                                     <a href="{{ route('posts.edit', $post->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>

@@ -24,7 +24,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/', 'HomeController@index')->name('home.index');
     // returns a homepage with all posts
     Route::get('/posts', PostController::class .'@index')->name('posts.index');
-    Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comments/{comment}', CommentController::class .'@destroy')->name('comment.destroy');
 
     Route::group(['middleware' => ['guest']], function() {
         /**

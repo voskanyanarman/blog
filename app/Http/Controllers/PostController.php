@@ -58,6 +58,13 @@ class PostController extends Controller
    */
   public function destroy($id)
   {
+    $comments = Comment::where('post_id', $id)->get();
+    if($comments!==null){
+    foreach($comments as $comment){
+        $comment->delete();
+    }
+}
+    
     $post = Post::find($id);
     $post->delete();
     return redirect()->route('posts.index')

@@ -19,7 +19,15 @@ class CommentController extends Controller
 
         Comment::create($input);
 
-        return redirect()->route('posts.index')
+        return redirect()->route('posts.show',$input['post_id'])
       ->with('success', 'Comment created successfully.');
     }
+    public function destroy($id)
+  {
+    $post = Comment::find($id);
+    $post->delete();
+    return redirect()->route('posts.show',$post['post_id'])
+      ->with('success', 'Comment deleted successfully');
+  }
+  // r
 }

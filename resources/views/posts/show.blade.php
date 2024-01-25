@@ -30,6 +30,9 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">{{ $post->body }}</p>
+                    <p class="card-text">User created this post:<b>{{ $post->user->name }}</b></p>
+                    {{$post->created_at}}
+                    {{$post->updated_at}}
                     <h4>Display Comments</h4>
   
                     @include('posts.commentsDisplay', ['commentss' => $post->comments, 'post_id' => $post->id])
@@ -47,6 +50,8 @@
                         </div>
                     </form>
                 </div>
+                @Auth
+                                @if(Auth::user()->id===$post->user_id)
                 <div class="card-footer">
                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
                     <form action="{{ route('posts.destroy', $post->id) }}" method="post">
@@ -55,6 +60,8 @@
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                 </div>
+                @endif
+                @endAuth
             </div>
         </div>
     </div>
