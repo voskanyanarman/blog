@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
+    // returns a homepage with all posts
+    Route::get('/posts', PostController::class .'@index')->name('posts.index');
+    Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -36,6 +42,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 
     Route::group(['middleware' => ['auth']], function() {
+        
+        // returns the form for adding a post
+        Route::get('/posts/create', PostController::class . '@create')->name('posts.create');
+        // adds a post to the database
+        Route::post('/posts', PostController::class .'@store')->name('posts.store');
+        // returns a page that shows a full post
+        Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show');
+        // returns the form for editing a post
+        Route::get('/posts/{post}/edit', PostController::class .'@edit')->name('posts.edit');
+        // updates a post
+        Route::put('/posts/{post}', PostController::class .'@update')->name('posts.update');
+        // deletes a post
+        Route::delete('/posts/{post}', PostController::class .'@destroy')->name('posts.destroy');
+
         /**
          * Logout Routes
          */
@@ -50,3 +70,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

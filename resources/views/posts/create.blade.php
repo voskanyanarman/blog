@@ -14,10 +14,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
-            <a class="navbar-brand h1" href={{ route('posts.index') }}>CRUDPosts</a>
+            <a class="navbar-brand h1" href="{{ route('posts.index') }}">Posts</a>
             <div class="justify-end ">
                 <div class="col ">
-                    <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>
+                    <a class="btn btn-sm btn-success" href="{{ route('posts.create') }}">Add Post</a>
                 </div>
             </div>
     </nav>
@@ -30,6 +30,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="form-group">
