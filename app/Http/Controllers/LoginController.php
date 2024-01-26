@@ -1,4 +1,13 @@
 <?php
+/**
+ * @OA\Get(
+ *     path="/users",
+ *     summary="Get a list of users",
+ *     tags={"Users"},
+ *     @OA\Response(response=200, description="Successful operation"),
+ *     @OA\Response(response=400, description="Invalid request")
+ * )
+ */
 
 namespace App\Http\Controllers;
 

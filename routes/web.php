@@ -22,8 +22,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
+    // returns a page that shows a full post
+    Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show');
     // returns a homepage with all posts
-    Route::get('/posts', PostController::class .'@index')->name('posts.index');
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment}', CommentController::class .'@destroy')->name('comment.destroy');
 
@@ -48,8 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/posts/create', PostController::class . '@create')->name('posts.create');
         // adds a post to the database
         Route::post('/posts', PostController::class .'@store')->name('posts.store');
-        // returns a page that shows a full post
-        Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show');
+        
         // returns the form for editing a post
         Route::get('/posts/{post}/edit', PostController::class .'@edit')->name('posts.edit');
         // updates a post
@@ -70,7 +70,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

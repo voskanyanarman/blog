@@ -7,6 +7,8 @@ use App\Models\Post;
 
 class CommentController extends Controller
 {
+  
+
     public function store(Request $request)
     {
         $input = $request->all();

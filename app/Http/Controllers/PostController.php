@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
@@ -6,6 +7,7 @@ use App\Models\Post;
 use App\Models\Comment;
 class PostController extends Controller
 {
+
   /**
    * Display a listing of the resource.
    *
@@ -14,7 +16,7 @@ class PostController extends Controller
   public function index()
   {
     $posts = Post::all();
-    return view('posts.index', compact('posts'));
+    return view('home.index', compact('posts'));
   }
   /**
    * Store a newly created resource in storage.
@@ -29,7 +31,7 @@ class PostController extends Controller
       'body' => 'required',
     ]);
     Post::create($request->all());
-    return redirect()->route('posts.index')
+    return redirect()->route('home.index')
       ->with('success', 'Post created successfully.');
   }
   /**
@@ -47,7 +49,7 @@ class PostController extends Controller
     ]);
     $post = Post::find($id);
     $post->update($request->all());
-    return redirect()->route('posts.index')
+    return redirect()->route('home.index')
       ->with('success', 'Post updated successfully.');
   }
   /**
@@ -67,7 +69,7 @@ class PostController extends Controller
     
     $post = Post::find($id);
     $post->delete();
-    return redirect()->route('posts.index')
+    return redirect()->route('home.index')
       ->with('success', 'Post deleted successfully');
   }
   // routes functions
