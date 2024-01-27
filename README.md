@@ -9,7 +9,6 @@ This Laravel project is a basic blogging platform. It includes functionality for
 - User authentication and authorization.
 - RESTful API endpoints.
 - Integration with Laravel Sanctum for API token handling.
-- Swagger documentation for APIs.
 
 ## Technologies and Tools Used
 
@@ -36,7 +35,6 @@ php artisan serve
 ## Usage
 
 - Access the blog platform through the provided URL after running `php artisan serve`.
-- Use API endpoints for blog management (refer to Swagger documentation).
 
 ## License
 
