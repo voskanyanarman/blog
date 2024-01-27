@@ -18,7 +18,6 @@ This Laravel project is a basic blogging platform. It includes functionality for
 - MySQL for the database.
 - Guzzle for HTTP requests.
 - Laravel Sanctum for API authentication.
-- Swagger for API documentation.
 
 ## Installation
 
