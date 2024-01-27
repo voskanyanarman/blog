@@ -18,11 +18,12 @@
     @endif
 
                 <div class="col-md-3 mb-2">
-                    <div class="card">
+                    <div class="card " style="height: 200px">
                         <div class="card-header">
                             <h5 class="card-title"><a href="{{route('posts.show',$post->id)}}">{{ $post->title }}</a></h5>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="overflow-y: auto;
+                        max-height: 300px;">
                             <p class="card-text">{{ $post->body }}</p>
                         </div>
                         <div class="card-footer">

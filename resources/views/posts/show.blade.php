@@ -22,7 +22,7 @@
     @endAuth
                 </div>
                 <div class="card-body">
-                    <p class="card-text"> <b>User: </b>{{ $post->user->name }}</p>
+                    <p class="card-text"style="font-size: 12px"> <b>User: </b>{{ $post->user->name }}</p>
                     <p style="font-size: 12px"><b>Created at: </b>{{$post->created_at}}
                     <b>Updated at: </b>{{$post->updated_at}}
                 </p>
@@ -37,7 +37,7 @@
                     <hr />
                     
                         
-                    <h4>Write comment</h4>
+                    <h5>Write comment</h5>
 
                     <form method="post" action="{{ route('comments.store'   ) }}">
                         @csrf
