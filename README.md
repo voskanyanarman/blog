@@ -23,8 +23,8 @@ This Laravel project is a basic blogging platform. It includes functionality for
 ## Installation
 
 ```bash
-git clone [your-repo-link]
-cd [your-project-directory]
+git clone https://github.com/voskanyanarman/blog.git
+cd blog
 composer install
 npm install
 cp .env.example .env
