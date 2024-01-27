@@ -23,7 +23,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
     // returns a page that shows a full post
-    Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show');
+    Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show')->where('post', '[0-9]+');
     // returns a homepage with all posts
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment}', CommentController::class .'@destroy')->name('comment.destroy');

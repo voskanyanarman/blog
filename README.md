@@ -43,5 +43,3 @@ php artisan serve
 
 The project is open-sourced under the MIT license.
 ---
-
-This README was generated with ❤️
