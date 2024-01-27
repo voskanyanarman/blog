@@ -42,3 +42,6 @@ php artisan serve
 ## License
 
 The project is open-sourced under the MIT license.
+---
+
+This README was generated with ❤️
