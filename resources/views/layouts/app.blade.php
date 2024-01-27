@@ -42,6 +42,7 @@
                             <a class="btn btn-primary" href="{{ route('register') }}"><i class="fas fa-user"></i> {{ __('Register') }}</a>
                         </li>
                     @endif
+                    
                     @else
                 
                     <li class="nav-item ">
